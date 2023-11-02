@@ -12,7 +12,7 @@ export class ComponenteService {
   return this.prisma.produto.create({ data: createComponenteDto });  }
 
   findAll() {
-    return this.prisma.componente.findMany({ where: { id: 1 } });
+    return this.prisma.componente.findMany();
   }
 
   findOne(id: number) {

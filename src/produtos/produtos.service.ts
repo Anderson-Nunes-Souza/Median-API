@@ -13,7 +13,7 @@ export class ProdutosService {
   
 
   findAll() {
-    return this.prisma.produto.findMany({ where: { id: 1 } });
+    return this.prisma.produto.findMany();
     }
 
   findOne(id: number) {

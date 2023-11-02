@@ -2,32 +2,41 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ProdutosService } from './produtos.service';
 import { CreateProdutoDto } from './dto/create-produto.dto';
 import { UpdateProdutoDto } from './dto/update-produto.dto';
+import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { ProdutoEntity } from './entities/produto.entity';
+
+@Controller('Produtos')
+@ApiTags('Produtos')
 
 @Controller('produtos')
 export class ProdutosController {
   constructor(private readonly produtosService: ProdutosService) {}
 
   @Post()
+  @ApiCreatedResponse({ type: ProdutoEntity })
   create(@Body() createProdutoDto: CreateProdutoDto) {
     return this.produtosService.create(createProdutoDto);
   }
 
   @Get()
+  @ApiOkResponse({ type: ProdutoEntity, isArray: true })
   findAll() {
     return this.produtosService.findAll();
   }
 
   @Get(':id')
+  @ApiOkResponse({ type: ProdutoEntity })
   findOne(@Param('id') id: string) {
     return this.produtosService.findOne(+id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProdutoDto: UpdateProdutoDto) {
-    return this.produtosService.update(+id, updateProdutoDto);
-  }
+  @ApiOkResponse({ type: ProdutoEntity })
+  update(@Param('id') id: number, @Body() updateProdutoDto: UpdateProdutoDto) {
+    return this.produtosService.update(+id, updateProdutoDto);  }
 
   @Delete(':id')
+  @ApiOkResponse({ type: ProdutoEntity })
   remove(@Param('id') id: string) {
     return this.produtosService.remove(+id);
   }

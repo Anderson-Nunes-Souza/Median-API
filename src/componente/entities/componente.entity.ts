@@ -24,4 +24,7 @@ export class ComponenteEntity implements Componente {
 
   @ApiProperty()
   Quantidade: number;
+
+  @ApiProperty()
+  produtoId: number;
 }

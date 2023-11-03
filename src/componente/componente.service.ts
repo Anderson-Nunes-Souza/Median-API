@@ -8,8 +8,13 @@ import { isNumberObject } from 'util/types';
 @Injectable()
 export class ComponenteService {
   constructor(private prisma: PrismaService) {}
+
   create(createComponenteDto: CreateComponenteDto) {
-  return this.prisma.produto.create({ data: createComponenteDto });  }
+    return this.prisma.componente.create({
+      data: createComponenteDto,
+    });
+  }
+  
 
   findAll() {
     return this.prisma.componente.findMany();
@@ -23,8 +28,7 @@ export class ComponenteService {
     return this.prisma.componente.update({
 
       where: { id },
-
-      data: UpdateComponenteDto,
+      data: updateComponenteDto,
 
     });  }
 

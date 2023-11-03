@@ -18,19 +18,19 @@ export class ProdutosController {
     return this.produtosService.create(createProdutoDto);
   }
 
+  @Get(':codigo')
+  @ApiOkResponse({ type: ProdutoEntity })
+  findOne(@Param('codigo') codigo: string) {
+    return this.produtosService.findOne(codigo);
+  }
+
   @Get()
   @ApiOkResponse({ type: ProdutoEntity, isArray: true })
   findAll() {
     return this.produtosService.findAll();
   }
 
-  @Get(':id')
-  @ApiOkResponse({ type: ProdutoEntity })
-  findOne(@Param('id') id: string) {
-    return this.produtosService.findOne(+id);
-  }
-
-  @Patch(':id')
+/*   @Patch(':id')
   @ApiOkResponse({ type: ProdutoEntity })
   update(@Param('id') id: number, @Body() updateProdutoDto: UpdateProdutoDto) {
     return this.produtosService.update(+id, updateProdutoDto);  }
@@ -38,6 +38,5 @@ export class ProdutosController {
   @Delete(':id')
   @ApiOkResponse({ type: ProdutoEntity })
   remove(@Param('id') id: string) {
-    return this.produtosService.remove(+id);
+    return this.produtosService.remove(+id); */
   }
-}

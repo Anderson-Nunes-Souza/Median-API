@@ -1,12 +1,13 @@
 // src/articles/dto/create-article.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
+import internal from 'stream';
 
 export class CreateComponenteDto {
     @ApiProperty()
     id: number;
     
     @ApiProperty()
-    codigo: string;
+    codigo: number;
     
     @ApiProperty()
     indice: number;
@@ -18,8 +19,11 @@ export class CreateComponenteDto {
     Descricao: string
 
     @ApiProperty()
-    Preco: Float32List
+    Preco: number;
 
     @ApiProperty()
     Quantidade: number
+
+    @ApiProperty({required: true})
+    produtoId: number
 }

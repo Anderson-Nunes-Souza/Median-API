@@ -12,15 +12,17 @@ export class ProdutosService {
     return this.prisma.produto.create({ data: createProdutoDto });  }
   
 
+    findOne(codigo: string) {
+      return this.prisma.produto.findUnique({ where: { codigo}  });
+      }
+      
   findAll() {
     return this.prisma.produto.findMany();
     }
 
-  findOne(id: number) {
-    return this.prisma.produto.findUnique({ where: { id } });
-    }
 
-  update(id: number, updateProdutoDto: UpdateProdutoDto) {
+
+/*   update(id: number, updateProdutoDto: UpdateProdutoDto) {
     return this.prisma.produto.update({
 
       where: { id },
@@ -30,5 +32,5 @@ export class ProdutosService {
     });  }
 
   remove(id: number) {
-    return this.prisma.produto.delete({ where: { id } });  }
+    return this.prisma.produto.delete({ where: { id } });  } */
 }

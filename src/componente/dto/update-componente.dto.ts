@@ -3,7 +3,7 @@ import { CreateComponenteDto } from './create-componente.dto';
 
 //export class UpdateComponenteDto extends PartialType(CreateComponenteDto) {}
 
-export class UpdateComponenteDto {
+ export class UpdateComponenteDto {
     id: number; // Substitua pelo tipo correto
     codigo: number; // Substitua pelo tipo correto
     indice: number;
@@ -12,5 +12,5 @@ export class UpdateComponenteDto {
     Preco: number;
     Quantidade: number;
     produtoId: number;
-  } 
+  }  
   

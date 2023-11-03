@@ -7,7 +7,7 @@ export class CreateComponenteDto {
     id: number;
     
     @ApiProperty()
-    codigo: number;
+    codigo: string;
     
     @ApiProperty()
     indice: number;
@@ -26,4 +26,5 @@ export class CreateComponenteDto {
 
     @ApiProperty({required: true})
     produtoId: number
+
 }

@@ -36,17 +36,29 @@ export class ProdutoService {
       return componente;
     }
 
+    async obterComponentesPorCodigo(codigoProduto: string) {
+       const componentes = await this.prisma.componente.findMany({
+/*         where: {
+          produto: {
+            codigo: codigoProduto,
+          },
+        },
+      });
+      return componentes; */
+    }); 
+      return 'teste'
+  }
+  async obterComponentesPorDescricao(descricao: string) {
+    const componentes = await this.prisma.componente.findMany({
+     /*  where: {
+        descricao: {
+          contains: descricao, // Você pode usar outras opções de consulta, como "startsWith" ou "endsWith".
+        },
+      }, */
+    });
+    return 'ENDPOINT GET /api/v1/produto/componente?descricao={descricao}'
+    //return componentes;
+  }
 
 
-/*   update(id: number, updateProdutoDto: UpdateProdutoDto) {
-    return this.prisma.produto.update({
-
-      where: { id },
-
-      data: updateProdutoDto,
-
-    });  }
-
-  remove(id: number) {
-    return this.prisma.produto.delete({ where: { id } });  } */
 }

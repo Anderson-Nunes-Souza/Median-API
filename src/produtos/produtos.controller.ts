@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { ProdutoService } from './produtos.service';
 import { CreateProdutoDto } from './dto/create-produto.dto';
 import { UpdateProdutoDto } from './dto/update-produto.dto';
@@ -20,6 +20,8 @@ export class ProdutoController {
     return this.produtosService.create(createProdutoDto);
   }
 
+  
+
   @Get(':codigo')
   @ApiOkResponse({ type: ProdutoEntity })
   findOne(@Param('codigo') codigo: string) {
@@ -38,6 +40,17 @@ export class ProdutoController {
   ) {
     const componente = await this.produtosService.obterComponentePorCodigoEIndice(codigo, indice);
     return componente;
+  }
+  @Get(':codigo/componente')
+  async obterComponentesPorCodigo(@Param('codigo') codigo: string) {
+    const componentes = await this.produtosService.obterComponentesPorCodigo(codigo);
+    return componentes;
+  }
+
+  @Get('componente')
+  async obterComponentesPorDescricao(@Query('descricao') descricao: string) {
+    const componentes = await this.produtosService.obterComponentesPorDescricao(descricao);
+    return componentes;
   }
 }
 

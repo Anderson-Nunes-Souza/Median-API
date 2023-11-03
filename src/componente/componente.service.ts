@@ -31,14 +31,14 @@ export class ComponenteService {
           },
         ...createComponenteDto,
       },
-    }); */
+    }); 
     
 
     //return componente; 
   }
 
   async obterComponentePorCodigoEIndice(codigoProduto: string, indice: number) {
-   /*  const componente = await this.prisma.componente.findFirst({
+    const componente = await this.prisma.componente.findFirst({
       where: {
         produto: {
           codigo: codigoProduto,
@@ -49,10 +49,10 @@ export class ComponenteService {
 
     if (!componente) {
       throw new ExceptionsHandler();
-    } */
+    } 
     return 'teste'
     //return componente;
-  }
+  }*/
 }
-
+}
 

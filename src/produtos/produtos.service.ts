@@ -3,6 +3,7 @@ import { CreateProdutoDto } from './dto/create-produto.dto';
 import { UpdateProdutoDto } from './dto/update-produto.dto';
 import { PrismaModule } from 'src/prisma/prisma.module';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { CreateComponenteDto } from 'src/componente/dto/create-componente.dto';
 
 
 @Injectable()
@@ -59,6 +60,29 @@ export class ProdutoService {
     return 'ENDPOINT GET /api/v1/produto/componente?descricao={descricao}'
     //return componentes;
   }
+  async criarComponente(codigoProduto: string, createComponenteDto: CreateComponenteDto) {
+    // Encontre o produto com base no código
+    const produto = await this.prisma.produto.findUnique({
+      where: {
+        codigo: codigoProduto,
+      },
+    });
 
+    if (!produto) {
+      //throw new NotFoundException('Produto não encontrado');
+    }
 
+    /* const componente = await this.prisma.componente.create({
+       data: {
+        produto: {
+          connect: {
+            id: produto.id,
+          },
+        },
+        ...createComponenteDto,
+      }, 
+    });
+    return componente;
+    */
+  } 
 }

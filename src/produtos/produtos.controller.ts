@@ -4,7 +4,7 @@ import { CreateProdutoDto } from './dto/create-produto.dto';
 import { UpdateProdutoDto } from './dto/update-produto.dto';
 import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { ProdutoEntity } from './entities/produto.entity';
-import { ComponenteService } from '../componente/componente.service';
+import { CreateComponenteDto } from 'src/componente/dto/create-componente.dto';
 
 
 @Controller('api/v1/Produto')
@@ -33,6 +33,17 @@ export class ProdutoController {
   findAll() {
     return this.produtosService.findAll();
   }
+
+  @Post(':codigo/componente')
+  async criarComponente(
+    @Param('codigo') codigo: string,
+    @Body() createComponenteDto: CreateComponenteDto,
+  ) {
+    const componente = await this.produtosService.criarComponente(codigo, createComponenteDto);
+    return componente;
+  }
+
+
   @Get(':codigo/componente/:indice')
   async obterComponente(
     @Param('codigo') codigo: string,

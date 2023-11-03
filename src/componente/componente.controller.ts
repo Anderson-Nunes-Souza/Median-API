@@ -6,7 +6,7 @@ import { CreateComponenteDto } from './dto/create-componente.dto'; // Importe o 
 export class ComponenteController {
   constructor(private readonly componenteService: ComponenteService) {}
 
-  @Post(':codigo/componente')
+  /* @Post(':codigo/componente')
   async criarComponente(
     @Param('codigo') codigo: string,
     @Body() componenteData: CreateComponenteDto,
@@ -18,5 +18,5 @@ export class ComponenteController {
       console.error(error);
       //throw new InternalServerErrorException('Erro ao criar o componente');
     }
-  }
+  } */
 }

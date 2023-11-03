@@ -14,4 +14,5 @@ import { ComponenteService } from 'src/componente/componente.service';
   controllers: [ProdutoController],
   providers: [ProdutoService, ComponenteService],
 })
+
 export class ProdutoModule {}

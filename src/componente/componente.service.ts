@@ -22,18 +22,37 @@ export class ComponenteService {
     if (!produto) {
       throw new ExceptionsHandler;
     }
-
 /*     const componente = await this.prisma.componente.create({
-      data: {
-        id: {
-          connect: {
-            id: produto.id,
+        data: {
+          produto: {
+            connect: {
+              id: produto.id,
+            },
           },
-        },
         ...createComponenteDto,
+      },
+    }); */
+    
+
+    //return componente; 
+  }
+
+  async obterComponentePorCodigoEIndice(codigoProduto: string, indice: number) {
+   /*  const componente = await this.prisma.componente.findFirst({
+      where: {
+        produto: {
+          codigo: codigoProduto,
+        },
+        indice,
       },
     });
 
-    return componente; */
+    if (!componente) {
+      throw new ExceptionsHandler();
+    } */
+    return 'teste'
+    //return componente;
   }
 }
+
+

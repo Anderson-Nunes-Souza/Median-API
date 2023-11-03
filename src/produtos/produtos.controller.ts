@@ -31,6 +31,14 @@ export class ProdutoController {
   findAll() {
     return this.produtosService.findAll();
   }
+  @Get(':codigo/componente/:indice')
+  async obterComponente(
+    @Param('codigo') codigo: string,
+    @Param('indice') indice: number,
+  ) {
+    const componente = await this.produtosService.obterComponentePorCodigoEIndice(codigo, indice);
+    return componente;
+  }
 }
 
 

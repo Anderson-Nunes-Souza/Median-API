@@ -3,6 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import internal from 'stream';
 
 export class CreateComponenteDto {
+
     @ApiProperty()
     id: number;
     
@@ -23,6 +24,12 @@ export class CreateComponenteDto {
 
     @ApiProperty()
     Quantidade: number
+
+    @ApiProperty()
+    produto: any
+
+    @ApiProperty()
+    data: []
 
     @ApiProperty({required: true})
     produtoId: number

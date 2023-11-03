@@ -20,6 +20,22 @@ export class ProdutoService {
     return this.prisma.produto.findMany();
     }
 
+    async obterComponentePorCodigoEIndice(codigoProduto: string, indice: number) {
+      const componente = await this.prisma.componente.findFirst({
+        where: {
+          codigo: parseInt(codigoProduto) 
+          },
+          //indice,
+        },
+      );
+  
+      if (!componente) {
+        //throw new NotFoundException();
+      }
+  
+      return componente;
+    }
+
 
 
 /*   update(id: number, updateProdutoDto: UpdateProdutoDto) {

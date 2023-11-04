@@ -10,7 +10,7 @@ CREATE TABLE "Produto" (
 -- CreateTable
 CREATE TABLE "Componente" (
     "id" SERIAL NOT NULL,
-    "codigo" INTEGER NOT NULL,
+    "codigo" TEXT NOT NULL,
     "indice" INTEGER NOT NULL,
     "SKU" TEXT,
     "Descricao" TEXT,

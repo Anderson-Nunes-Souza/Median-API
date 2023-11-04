@@ -22,11 +22,13 @@ async function main() {
     update: {},
     create: {
       id: 1,
-      codigo: 1,
+      codigo: 'codigo1',
       indice: 1,
       Preco: 1.99,
       Quantidade: 1,
-      produtoId: 1
+      produtoId: 1,
+      Descricao: 'componente 1 descricao',
+      SKU: 'Componente-1-SKU-ABCDE'
     },
   });
   console.log({ post1, post2 });

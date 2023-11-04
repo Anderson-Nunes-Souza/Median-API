@@ -8,7 +8,7 @@ export class ComponenteEntity implements Componente {
   id: number;
 
   @ApiProperty()
-  codigo: number;
+  codigo: string;
 
   @ApiProperty({ required: false, nullable: true })
   indice: number;

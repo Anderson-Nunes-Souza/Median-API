@@ -1,7 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { CreateProdutoDto } from './dto/create-produto.dto';
-import { UpdateProdutoDto } from './dto/update-produto.dto';
-import { PrismaModule } from 'src/prisma/prisma.module';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateComponenteDto } from 'src/componente/dto/create-componente.dto';
 
@@ -24,7 +22,7 @@ export class ProdutoService {
     async obterComponentePorCodigoEIndice(codigoProduto: string, indice: number) {
       const componente = await this.prisma.componente.findFirst({
         where: {
-          codigo: parseInt(codigoProduto) 
+          codigo: codigoProduto
           },
           //indice,
         },
@@ -39,27 +37,23 @@ export class ProdutoService {
 
     async obterComponentesPorCodigo(codigoProduto: string) {
        const componentes = await this.prisma.componente.findMany({
-/*         where: {
-          produto: {
+        where: {
             codigo: codigoProduto,
           },
-        },
-      });
-      return componentes; */
-    }); 
-      return 'teste'
+        })
+      return componentes; 
   }
-  async obterComponentesPorDescricao(descricao: string) {
+   async obterComponentesPorDescricao(descricao: string) {
     const componentes = await this.prisma.componente.findMany({
-     /*  where: {
-        descricao: {
+       where: {
+        /*descricao: {
           contains: descricao, // Você pode usar outras opções de consulta, como "startsWith" ou "endsWith".
-        },
-      }, */
+        },*/
+      },
     });
     return 'ENDPOINT GET /api/v1/produto/componente?descricao={descricao}'
     //return componentes;
-  }
+  } 
   async criarComponente(codigoProduto: string, createComponenteDto: CreateComponenteDto) {
     // Encontre o produto com base no código
     const produto = await this.prisma.produto.findUnique({

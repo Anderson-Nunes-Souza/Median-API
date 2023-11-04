@@ -2,7 +2,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Projeto da API Produtos do Curso de API Gateway Impacta
 
 ## instalação
 

@@ -28,6 +28,18 @@ $ npx prisma db seed
 $ npm run start:dev
 ```
 
+## dados padrão a ser utilizados
+
+# Opções de campo de código
+```bash
+codigo1
+```
+# Opções de campo de ID
+```bash 
+1
+```
+
+
 ## Endpoints não funcionais
 - GET  /api/v1/Produto/componente
 

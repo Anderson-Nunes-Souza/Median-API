@@ -25,11 +25,8 @@ export class CreateComponenteDto {
     @ApiProperty({ required: false })
     Quantidade: number
 
-/*     @ApiProperty({ required: false })
-    produto: {} */
-
-/*     @ApiProperty({ required: false })
-    data: [] */
+     @ApiProperty({ required: false })
+    produto: String
 
     @ApiProperty({required: true})
     produtoId: number

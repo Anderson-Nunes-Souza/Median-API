@@ -58,7 +58,8 @@ export class ProdutoService {
   } 
   async criarComponente(codigoProduto: string, createComponenteDto: CreateComponenteDto) {
     // Encontre o produto com base no código
-    const produto = await this.prisma.produto.findUnique({
+    return this.prisma.componente.create({ data: createComponenteDto });
+    /*     const produto = await this.prisma.produto.findUnique({
       where: {
         codigo: codigoProduto,
       },
@@ -78,7 +79,7 @@ export class ProdutoService {
         ...createComponenteDto,
       }, 
     });
-    return componente;
+    return componente; */
 
   } 
 }

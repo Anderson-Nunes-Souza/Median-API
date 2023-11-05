@@ -29,7 +29,6 @@ $ npm run start:dev
 ```
 
 ## Endpoints não funcionais
-- POST /api/v1/Produto/{codigo}/componente
 - GET  /api/v1/Produto/componente
 
 ## Documentação utilizada no Projeto

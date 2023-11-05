@@ -10,7 +10,7 @@ export class CreateComponenteDto {
     @ApiProperty()
     codigo: string;
     
-    @ApiProperty()
+    @ApiProperty({ required: false })
     indice: number;
     
     @ApiProperty({ required: false })
@@ -19,17 +19,17 @@ export class CreateComponenteDto {
     @ApiProperty({ required: false })
     Descricao: string
 
-    @ApiProperty()
+    @ApiProperty({ required: false })
     Preco: number;
 
-    @ApiProperty()
+    @ApiProperty({ required: false })
     Quantidade: number
 
-    @ApiProperty()
-    produto: any
+/*     @ApiProperty({ required: false })
+    produto: {} */
 
-    @ApiProperty()
-    data: []
+/*     @ApiProperty({ required: false })
+    data: [] */
 
     @ApiProperty({required: true})
     produtoId: number
